@@ -11,3 +11,23 @@ class RecipeIngredientSerializer(serializers.ModelSerializer):
     model = RecipeIngredient
     fields = ['id', 'recipe', 'ingredient', 'quantity']
     read_only_fields = ['id']
+
+class RecipeSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Recipe
+    fields = ['id', 'User', 'group', 'title', 'content', 'image_url']
+    read_only_fields = ['id']
+
+class GroupSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Group
+    fields = ['id', 'name']
+    read_only_fields = ['id']
+
+class UserSerializer(serializers.ModelSerializer):
+  group = GroupSerializer(read_only=True)
+
+  class Meta:
+    model = User
+    fields = ['id', 'name', 'group']
+    read_only_fields = ['id']
