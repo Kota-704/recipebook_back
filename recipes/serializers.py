@@ -15,7 +15,7 @@ class RecipeIngredientSerializer(serializers.ModelSerializer):
 class RecipeSerializer(serializers.ModelSerializer):
   class Meta:
     model = Recipe
-    fields = ['id', 'User', 'group', 'title', 'content', 'image_url']
+    fields = ['id', 'user', 'group', 'title', 'content', 'image_url']
     read_only_fields = ['id']
 
 class GroupSerializer(serializers.ModelSerializer):
