@@ -13,12 +13,18 @@ class Recipe(models.Model):
     "User",
     on_delete=models.CASCADE,
     related_name="recipes",
+    # 本番適用時に外す-----
+    null=True, blank=True,
+    # -----
     verbose_name="投稿者"
   )
   group=models.ForeignKey(
     "Group",
     on_delete=models.CASCADE,
     related_name="recipes",
+    # 本番適用時に外す-----
+    null=True, blank=True,
+    # -----
     verbose_name="グループ"
   )
   title=models.CharField(max_length=60, verbose_name="料理名")
