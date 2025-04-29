@@ -29,7 +29,7 @@ class Recipe(models.Model):
   )
   title=models.CharField(max_length=60, verbose_name="料理名")
   content=models.TextField(max_length=5000, verbose_name="作り方")
-  image_url=models.URLField(verbose_name="TOP画像")
+  image_url=models.URLField(verbose_name="TOP画像", null=True, blank=True,)
 
 class RecipeIngredient(models.Model):
   id=models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4, verbose_name="ID")
